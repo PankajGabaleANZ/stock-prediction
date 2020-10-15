@@ -1,7 +1,9 @@
 '''trains a neural network model in TensorFlow'''
 import sys
 import time
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior() 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -108,7 +110,7 @@ def train(data_train, data_test, export_dir):
     mse_test = []
 
     # Run
-    epochs = 20
+    epochs = 2
     for e in range(epochs):
 
         # Shuffle training data
