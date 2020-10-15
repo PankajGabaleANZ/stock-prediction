@@ -7,5 +7,5 @@ scikit-learn==0.19.1
 scipy==1.0.0
 tensorflow==1.7.0
 lxml==4.5.2
-yfinance==.1.54
+yfinance==1.54
 yahoo-fin==0.8.6
