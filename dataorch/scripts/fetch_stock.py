@@ -36,4 +36,6 @@ def fetch(symbol, config):
     return dataframe
 
 if __name__ == '__main__':
+    print('Fetching System Args....')
+    print('Fetching System Args....')
     fetch(str(sys.argv[1]), sys.argv[2])

@@ -6,7 +6,7 @@ import fetch_combined_data
 import preprocess
 import neural_network
 import evaluate_neural_network
-from yahoo_fin.stock_info import get_data
+
 
 def main(argv):
     '''driver method'''
@@ -18,10 +18,6 @@ def main(argv):
         print('run.py')
         sys.exit(2)
 
-    print('-----command line options-----')
-    msft = yf.Ticker("MSFT")
-    print(msft.info)
-    print(opts)
 
     single_opt = [opt[0] for opt in opts]
 

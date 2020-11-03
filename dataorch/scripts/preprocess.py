@@ -53,7 +53,7 @@ def construct_label(data):
     return data.drop(data.index[len(data)-1])
 
 
-def preproce    ss(data, train_ratio):
+def preprocess(data, train_ratio):
     '''perform preprocessing on data'''
 
     data = construct_label(data)

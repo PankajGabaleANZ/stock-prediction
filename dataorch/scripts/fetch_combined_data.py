@@ -54,6 +54,7 @@ def fetch(symbols_file, indicators_file, output_path):
 
             dfs.append(indicator_data)
 
+
         stock_indicators_joined = reduce(
             lambda left, right:
             pd.merge(
