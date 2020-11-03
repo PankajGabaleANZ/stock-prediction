@@ -9,3 +9,5 @@ tensorflow==1.7.0
 lxml==4.5.2
 yfinance==0.1.54
 yahoo-fin==0.8.6
+google-cloud-storage==1.32.2
+google-cloud-bigquery==2.2.0
