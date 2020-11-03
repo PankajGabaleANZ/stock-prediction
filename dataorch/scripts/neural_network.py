@@ -1,9 +1,7 @@
 '''trains a neural network model in TensorFlow'''
 import sys
 import time
-#import tensorflow as tf
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior() 
+import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
