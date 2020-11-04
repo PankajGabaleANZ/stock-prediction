@@ -15,7 +15,6 @@ import re
 # Imports the Google Cloud client library
 from google.cloud import logging
 
-
 def main(argv):
     '''driver method'''
     start = time.time()
@@ -25,7 +24,7 @@ def main(argv):
     client = bigquery.Client(location="US")
     blobs = storage_client.list_blobs('b1-sjs')
 
-    dataset = bigquery.Dataset('radiant-poet-290704.'+dataset_id)
+    dataset = bigquery.Dataset('radiant-poet-290704.'+data  set_id)
     dataset = client.create_dataset(dataset, timeout=30)
 
     StringformergeQuery = "select DATE, SAFE_CAST(Open as FLOAT64) as Open , SAFE_CAST(High as FLOAT64) as High,\
