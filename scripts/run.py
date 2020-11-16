@@ -7,12 +7,14 @@ import preprocess
 import neural_network
 import evaluate_neural_network
 
+
 def main(argv):
     '''driver method'''
     start = time.time()
 
     try:
-        opts, _ = getopt.getopt(argv, 'fpn', ['fetch', 'preprocess', 'neuralnetwork', 'evalnn'])
+        opts, _ = getopt.getopt(
+            argv, 'fpn', ['fetch', 'preprocess', 'neuralnetwork', 'evalnn'])
     except getopt.GetoptError:
         print('run.py')
         sys.exit(2)
@@ -21,7 +23,6 @@ def main(argv):
     print(opts)
 
     single_opt = [opt[0] for opt in opts]
-
 
     # run pipeline in order according to command line options
     if '-f' in single_opt or '--fetch' in single_opt:
@@ -59,8 +60,6 @@ def main(argv):
 
     print('time elapsed: ' + str(round(elapsed, 2)) + " seconds")
     print('-----program finished-----')
-
-
 
     # validate
     # validate_stock_data.validate(
