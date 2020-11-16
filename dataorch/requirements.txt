@@ -6,8 +6,11 @@ pylint==1.7.4
 scikit-learn==0.19.1
 scipy==1.0.0
 tensorflow==1.7.0
+<<<<<<< HEAD:dataorch/requirements.txt
 lxml==4.5.2
 yfinance==0.1.54
 yahoo-fin==0.8.6
 google-cloud-storage==1.32.2
 google-cloud-bigquery==2.2.0
+=======
+>>>>>>> parent of 3ccaa09... comment1:requirements.txt

@@ -108,7 +108,7 @@ def train(data_train, data_test, export_dir):
     mse_test = []
 
     # Run
-    epochs = 2
+    epochs = 20
     for e in range(epochs):
 
         # Shuffle training data
