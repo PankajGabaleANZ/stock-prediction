@@ -1,4 +1,5 @@
 numpy==1.14.2
+flask==0.10.1
 matplotlib==2.1.0
 dask==0.17.2
 pandas==0.22.0

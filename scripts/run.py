@@ -2,10 +2,13 @@
 import sys
 import getopt
 import time
+from flask import Flask
 import fetch_combined_data
 import preprocess
 import neural_network
 import evaluate_neural_network
+
+app = Flask('hello-cloudbuild')
 
 
 def main(argv):
@@ -68,5 +71,11 @@ def main(argv):
     # )
 
 
+@app.route('/')
+def hello():
+    return "Hello World!\n"
+
+
 if __name__ == '__main__':
     main(sys.argv[1:])
+    app.run(host='0.0.0.0', port=8080)
