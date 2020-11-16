@@ -1,13 +1,15 @@
 '''trains a neural network model in TensorFlow'''
+from utils import format_path, make_dir_if_not_exists, remove_dir
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import sys
 import time
-import tensorflow as tf
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-from utils import format_path, make_dir_if_not_exists, remove_dir
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 # pylint: skip-file
+
 
 def train_batch(symbols_file, data_path, export_dir):
     '''prep data for training'''
@@ -19,14 +21,17 @@ def train_batch(symbols_file, data_path, export_dir):
 
     for symbol in symbols:
         print('training neural network model for ' + symbol)
-        train_data = pd.read_csv(format_path(data_path + '/train/' + symbol + '.csv'), index_col='date')
-        test_data = pd.read_csv(format_path(data_path + '/test/' + symbol + '.csv'), index_col='date')
+        train_data = pd.read_csv(format_path(
+            data_path + '/train/' + symbol + '.csv'), index_col='date')
+        test_data = pd.read_csv(format_path(
+            data_path + '/test/' + symbol + '.csv'), index_col='date')
 
         model_dir = format_path(export_dir + '/' + symbol)
         remove_dir(model_dir)
         train(train_data, test_data, format_path(model_dir))
 
         print('training finished for ' + symbol)
+
 
 def train(data_train, data_test, export_dir):
     '''trains a neural network'''
@@ -57,7 +62,8 @@ def train(data_train, data_test, export_dir):
 
     # Initializers
     sigma = 1
-    weight_initializer = tf.variance_scaling_initializer(mode="fan_avg", distribution="uniform", scale=sigma)
+    weight_initializer = tf.variance_scaling_initializer(
+        mode="fan_avg", distribution="uniform", scale=sigma)
     bias_initializer = tf.zeros_initializer()
 
     # Layer 1: Variables for hidden weights and biases
@@ -76,8 +82,10 @@ def train(data_train, data_test, export_dir):
 
     # Hidden layer
     hidden_1 = tf.nn.relu(tf.add(tf.matmul(X, W_hidden_1), bias_hidden_1))
-    hidden_2 = tf.nn.relu(tf.add(tf.matmul(hidden_1, W_hidden_2), bias_hidden_2))
-    hidden_3 = tf.nn.relu(tf.add(tf.matmul(hidden_2, W_hidden_3), bias_hidden_3))
+    hidden_2 = tf.nn.relu(
+        tf.add(tf.matmul(hidden_1, W_hidden_2), bias_hidden_2))
+    hidden_3 = tf.nn.relu(
+        tf.add(tf.matmul(hidden_2, W_hidden_3), bias_hidden_3))
 
     # Output layer (must be transposed)
     out = tf.add(tf.matmul(hidden_3, W_out), bias_out, name='out')
