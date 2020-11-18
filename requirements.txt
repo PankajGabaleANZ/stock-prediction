@@ -1,5 +1,8 @@
 numpy==1.14.2
 flask==0.10.1
+cloudstorage==0.10.1
+gcs-oauth2-boto-plugin==1.6
+webapp2==2.5.2
 matplotlib==2.1.0
 dask==0.17.2
 pandas==0.22.0

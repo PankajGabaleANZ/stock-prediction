@@ -5,6 +5,7 @@ import pandas as pd
 import constants
 import utils
 
+
 def fetch(symbol, config):
     '''fetches stock data from api, return as a pandas dataframe'''
 
@@ -31,9 +32,11 @@ def fetch(symbol, config):
         dataframe = pd.DataFrame()
 
     pattern = re.compile('[a-zA-Z]+')
-    dataframe.columns = dataframe.columns.map(lambda a: pattern.search(a).group())
+    dataframe.columns = dataframe.columns.map(
+        lambda a: pattern.search(a).group())
     # print(dataframe)
     return dataframe
+
 
 if __name__ == '__main__':
     fetch(str(sys.argv[1]), sys.argv[2])

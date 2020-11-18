@@ -6,6 +6,7 @@ from utils import format_path
 
 # pylint: disable=C0103
 
+
 def evaluate(symbol, model_dir, data_test):
     '''evaluates model'''
     print('Evaluating model ' + symbol)
@@ -42,7 +43,8 @@ def evaluate_batch(symbols_file, data_path):
         symbols = str(read_data).split()
 
     for symbol in symbols:
-        test_data = pd.read_csv(format_path(data_path + '/' + symbol + '.csv'), index_col='date')
+        test_data = pd.read_csv(format_path(
+            data_path + '/' + symbol + '.csv'), index_col='date')
 
         model_dir = format_path('output/models/' + symbol)
 

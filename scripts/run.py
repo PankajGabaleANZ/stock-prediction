@@ -7,6 +7,7 @@ import fetch_combined_data
 import preprocess
 import neural_network
 import evaluate_neural_network
+import store_to_gcs
 
 app = Flask('hello-cloudbuild')
 
@@ -78,4 +79,5 @@ def hello():
 
 if __name__ == '__main__':
     main(sys.argv[1:])
+    store_to_gcs.definedclass(" ds")
     app.run(host='0.0.0.0', port=8080)
