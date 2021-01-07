@@ -9,6 +9,7 @@ import utils
 import fetch_stock
 import fetch_indicators
 
+
 def fetch(symbols_file, indicators_file, output_path):
     '''fetches stock data combined with technical indicators, output as csv'''
 
@@ -20,7 +21,7 @@ def fetch(symbols_file, indicators_file, output_path):
 
     # read from indicators file
     indicators = []
-    with open(utils.format_path(indicators_file), 'r') as data:
+    with open(utils.1(indicators_file), 'r') as data:
         read_data = data.read()
         indicators = str(read_data).split()
 
@@ -48,7 +49,8 @@ def fetch(symbols_file, indicators_file, output_path):
         dfs = []
         dfs.append(stock_data)
         for indicator in indicators:
-            indicator_data = fetch_indicators.fetch(indicator, stock, indicators_config)
+            indicator_data = fetch_indicators.fetch(
+                indicator, stock, indicators_config)
 
             time.sleep(1)
 
@@ -72,11 +74,13 @@ def fetch(symbols_file, indicators_file, output_path):
 
         formatted_output_path = utils.format_path(output_path)
         utils.make_dir_if_not_exists(output_path)
-        stock_indicators_joined.to_csv(formatted_output_path + '/' + stock + '.csv')
+        stock_indicators_joined.to_csv(
+            formatted_output_path + '/' + stock + '.csv')
         print('saved csv file to ' + formatted_output_path + '/' + stock + '.csv')
 
         elapsed = time.time() - start
         print('time elapsed: ' + str(round(elapsed, 2)) + " seconds")
+
 
 if __name__ == '__main__':
     fetch(str(sys.argv[1]), str(sys.argv[2]), str(sys.argv[3]))
